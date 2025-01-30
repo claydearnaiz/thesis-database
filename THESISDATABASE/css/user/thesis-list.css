@@ -1,0 +1,370 @@
+.filter-section {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    padding: 12px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: var(--white);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.filter-select:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 117, 255, 0.1);
+}
+
+.filter-select:hover {
+    border-color: var(--secondary-color);
+}
+
+.thesis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.thesis-card {
+    position: relative; 
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.thesis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.thesis-content {
+    flex: 1;
+}
+
+.thesis-title {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.thesis-info {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.thesis-info i {
+    color: var(--secondary-color);
+    width: 16px;
+}
+
+.thesis-abstract {
+    margin: 15px 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.thesis-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.keyword-tag {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.keyword-tag:hover {
+    transform: translateY(-2px);
+}
+
+.thesis-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-btn {
+    background: linear-gradient(45deg, var(--secondary-color), #1a75ff);
+    box-shadow: 0 4px 15px rgba(26, 117, 255, 0.2);
+}
+
+.download-btn {
+    background: linear-gradient(45deg, #28a745, #34ce57);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.8);
+    z-index: 1100;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto;
+    padding: 35px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: var(--light-gray);
+}
+
+.close:hover {
+    color: var(--error-color);
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
+.no-records {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.no-records i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .thesis-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .thesis-actions {
+        flex-direction: column;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+        padding: 25px;
+    }
+
+    .thesis-title {
+        font-size: 1.2rem;
+    }
+
+    .action-btn {
+        padding: 12px 20px;
+    }
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    padding-right: 40px;
+}
+
+.modal-info {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-abstract h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.modal-abstract p {
+    line-height: 1.8;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.modal.show {
+    display: block;
+}
+
+
+.bookmark-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.bookmark-icon i {
+    color: #ccc; /* Default color */
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+}
+
+.bookmark-icon:hover i {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+.bookmark-icon.bookmarked i {
+    color: var(--accent-color);
+}
+
+@keyframes bookmark-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.bookmark-icon.animate i {
+    animation: bookmark-pop 0.3s ease-in-out;
+}
+
+/* bookmark css for feedback popup*/
+
+
+#feedback-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.feedback-message {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.feedback-message.success {
+    background-color: var(--success-color, #4CAF50);
+}
+
+.feedback-message.error {
+    background-color: var(--error-color, #f44336);
+}
+
+.feedback-message.info {
+    background-color: var(--secondary-color, #1a75ff);
+}
+
+.feedback-message.fade-out {
+    opacity: 0;
+}
+
+@keyframes bookmark-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.bookmark-icon.animate i {
+    animation: bookmark-pop 0.3s ease-in-out;
+}
+
